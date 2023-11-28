@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export const ProfileInfo = () => {
   // aktif kullanıcının bilgilerini al
   const { activeUser, logout } = useContext(UserContext);
-  console.log(activeUser);
   return (
     <div>
       {!activeUser ? (
@@ -20,7 +19,7 @@ export const ProfileInfo = () => {
           <h2 className="font-bold">{activeUser.name}</h2>
 
             {/* hover */}
-          <div className="group-hover:block hidden absolute top-14 bg-gray-600 rounded start-[-20px] p-1">
+          <div className="group-hover:flex flex-col hidden absolute top-14 bg-gray-600 rounded start-[-20px] p-1">
              <p className="rounded p-2">{activeUser.email}</p>
              <Link to={"/profile"} className="rounded p-2 hover:bg-gray-400">Profili Göster</Link>
              <p onClick={logout} className="rounded p-2 hover:bg-gray-400">Çıkış Yap</p>

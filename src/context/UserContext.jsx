@@ -17,7 +17,7 @@ export const UserProvider = ({children}) => {
         if (user_id){
             axios.get(`/users/${user_id}`)
             .then((res) => setActiveUser(res.data))
-            .catch((err) => toast.error("Kullanıcı bilgileri alınamadı"))
+            .catch(() => toast.error("Kullanıcı bilgileri alınamadı"))
         } else {
             // kullanıcı kayıtlı değilse 
         }
@@ -81,7 +81,7 @@ export const UserProvider = ({children}) => {
     const deleteAccount = () => {
         // kullanıcının idsine erişmek için istek
         axios.delete(`/users/${activeUser.id}`)
-        .then(logout)
+        .then(() => {logout(); toast.info("Hesabınız Silindi")})
         .catch(() => toast.error("Hesap Silinemedi"))
     };
 

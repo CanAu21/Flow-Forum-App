@@ -10,6 +10,7 @@ const InputArea = ({label,holder,name,type}) => {
         name={name}
         className= "w-full bg-gray-700 my-2 border border-gray-600 placeholder-gray-400 p-2.5 rounded-lg focus:ring ring-blue-500"
         type={type}
+        required
       />
     </div>
   );
